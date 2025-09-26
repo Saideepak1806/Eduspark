@@ -1,0 +1,59 @@
+{
+  "patients": [
+    {
+      "username": "rajeev",
+      "password": "pass123",
+      "name": "Rajeev Kumar",
+      "id": "p1",
+      "key": "aDbrB7eYWGTh4v7KeWri8rDBZxzIv0V3m_ORkeWPP44="
+    },
+    {
+      "username": "anita",
+      "password": "pass123",
+      "name": "Anita Singh",
+      "id": "p2",
+      "key": "gLMYiZfC958ifTmA3Q0vOUi8mDmUKOC7Mv8gX70SVzU="
+    },
+    {
+      "username": "suresh",
+      "password": "pass123",
+      "name": "Suresh Patel",
+      "id": "p3",
+      "key": "sru5ds1m4VzrhLorasEaggyyLWIzWIzlAxGffsUGMik="
+    }
+  ],
+  "doctors": [
+    {
+      "username": "dr_rahul",
+      "password": "pass123",
+      "name": "Dr. Rahul Mehra",
+      "id": "d1"
+    },
+    {
+      "username": "dr_neha",
+      "password": "pass123",
+      "name": "Dr. Neha Gupta",
+      "id": "d2"
+    },
+    {
+      "username": "dr_amit",
+      "password": "pass123",
+      "name": "Dr. Amit Sharma",
+      "id": "d3"
+    }
+  ],
+  "hospitals": [
+    {
+      "username": "apollo",
+      "password": "pass123",
+      "name": "Apollo Hospitals",
+      "id": "h1"
+    },
+    {
+      "username": "aiims",
+      "password": "pass123",
+      "name": "AIIMS Delhi",
+      "id": "h2"
+    }
+  ]
+}

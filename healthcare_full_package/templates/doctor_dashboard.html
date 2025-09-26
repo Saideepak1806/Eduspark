@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-md-8">
+    <div class="card p-3">
+      <h4>Available Patient Files</h4>
+      <table class="table">
+        <thead><tr><th>File</th><th>Actions</th></tr></thead>
+        <tbody>
+        {% for f in files %}
+          <tr>
+            <td>{{ f }}</td>
+            <td>
+              <div class="d-flex gap-2">
+                {% for p in patients %}
+                  <a class="btn btn-sm btn-outline-primary" href="/doctor/request/{{ p.id }}/{{ f }}">Request for {{ p.name }}</a>
+                {% endfor %}
+              </div>
+            </td>
+          </tr>
+        {% else %}
+          <tr><td colspan="2">No files</td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card p-3 mt-3">
+      <h4>Your Requests</h4>
+      <ul class="list-group">
+        {% for r in requests %}
+          {% if r.doctor_username == username %}
+            <li class="list-group-item d-flex justify-content-between">
+              <div>
+                <strong>{{ r.file }}</strong> — Patient: {{ r.patient_id }} 
+                <div class="small text-muted">Request ID: {{ r.id }}</div>
+              </div>
+              <div>
+                {% if r.status=="Pending" %}
+                  <span class="badge bg-warning text-dark">Pending</span>
+                {% elif r.status=="Approved" %}
+                  <a class="btn btn-sm btn-primary" href="/doctor/download/{{ r.id }}">Download</a>
+                {% else %}
+                  <span class="badge bg-danger">Rejected</span>
+                {% endif %}
+              </div>
+            </li>
+          {% endif %}
+        {% else %}
+          <li class="list-group-item">No requests</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="col-md-4">
+    <div class="card p-3">
+      <h5>Tips</h5>
+      <p class="small text-muted">Request access to a specific patient file. Patient will approve or reject. Approved requests allow secure download.</p>
+      <p><strong>Logged in as:</strong> {{ username }}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

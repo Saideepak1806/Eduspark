@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-md-9">
+    <div class="card p-3">
+      <h4>Blockchain Log (file uploads)</h4>
+      <ul class="list-group">
+        {% for entry in logs|reverse %}
+          <li class="list-group-item">
+            <div><strong>{{ entry.action }}</strong></div>
+            <div class="small text-muted">By: {{ entry.by }} — {{ entry.time }}</div>
+          </li>
+        {% else %}
+          <li class="list-group-item">No logs yet</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="card p-3 mt-3">
+      <h4>All Access Requests</h4>
+      <table class="table">
+        <thead><tr><th>Request ID</th><th>Doctor</th><th>Patient</th><th>File</th><th>Status</th></tr></thead>
+        <tbody>
+          {% for r in requests %}
+            <tr>
+              <td>{{ r.id }}</td>
+              <td>{{ r.doctor_username }}</td>
+              <td>{{ r.patient_id }}</td>
+              <td>{{ r.file }}</td>
+              <td>
+                {% if r.status=="Pending" %}<span class="badge bg-warning text-dark">Pending</span>
+                {% elif r.status=="Approved" %}<span class="badge bg-success">Approved</span>
+                {% else %}<span class="badge bg-danger">Rejected</span>
+                {% endif %}
+              </td>
+            </tr>
+          {% else %}
+            <tr><td colspan="5">No requests</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card p-3">
+      <h5>System Info</h5>
+      <p class="small text-muted">Users and requests are stored in the data folder for demo persistence.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

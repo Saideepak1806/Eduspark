@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card p-4 mx-auto" style="max-width:600px">
+  <h3>Create account</h3>
+  <form method="post" action="/signup">
+    <div class="mb-2">
+      <label>Role</label>
+      <select name="role" class="form-select">
+        <option value="patient">Patient</option>
+        <option value="doctor">Doctor</option>
+        <option value="hospital">Hospital</option>
+      </select>
+    </div>
+    <div class="mb-2"><input name="username" class="form-control" placeholder="Choose username" required></div>
+    <div class="mb-2"><input name="password" type="password" class="form-control" placeholder="Password" required></div>
+    <div class="mb-2"><input name="name" class="form-control" placeholder="Full name (optional)"></div>
+    <button class="btn btn-primary">Signup</button>
+  </form>
+  <div class="mt-3"><a href="/">Back to login</a></div>
+</div>
+{% endblock %}

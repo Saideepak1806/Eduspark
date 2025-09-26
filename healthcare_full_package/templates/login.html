@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="text-center mb-4">
+  <p class="text-muted">Select your role and login</p>
+</div>
+<div class="row justify-content-center g-3">
+  <div class="col-md-3">
+    <div class="card p-3">
+      <h4>Patient 👤</h4>
+      <form action="/login" method="post">
+        <input type="hidden" name="role" value="patient">
+        <div class="mb-2"><input name="username" class="form-control" placeholder="Username"></div>
+        <div class="mb-2"><input name="password" type="password" class="form-control" placeholder="Password"></div>
+        <button class="btn btn-primary w-100">Login as Patient</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card p-3">
+      <h4>Doctor 🩺</h4>
+      <form action="/login" method="post">
+        <input type="hidden" name="role" value="doctor">
+        <div class="mb-2"><input name="username" class="form-control" placeholder="Username"></div>
+        <div class="mb-2"><input name="password" type="password" class="form-control" placeholder="Password"></div>
+        <button class="btn btn-success w-100">Login as Doctor</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card p-3">
+      <h4>Hospital 🏥</h4>
+      <form action="/login" method="post">
+        <input type="hidden" name="role" value="hospital">
+        <div class="mb-2"><input name="username" class="form-control" placeholder="Username"></div>
+        <div class="mb-2"><input name="password" type="password" class="form-control" placeholder="Password"></div>
+        <button class="btn btn-danger w-100">Login as Hospital</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="text-center mt-4">
+  <a href="/signup" class="btn btn-outline-secondary">Create a new account</a>
+</div>
+{% endblock %}
